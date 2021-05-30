@@ -17,7 +17,9 @@ module.exports = class ImageController {
     const image = await Image.findById(req.params.id);
 
     if(!image) {
-      return res.status(404).send("Not found.");
+      return res.status(404).json({
+        status: 'not found'
+      });
     }
 
     return res.json({
@@ -96,7 +98,9 @@ module.exports = class ImageController {
   static async destroy(req, res) {
     const image = await Image.findById(req.params.id);
     if(!image) {
-      return res.status(404).send("Not found.");
+      return res.status(404).json({
+        status: 'not found'
+      });
     }
 
     await image.remove();
