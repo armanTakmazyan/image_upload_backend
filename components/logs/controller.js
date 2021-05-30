@@ -9,7 +9,7 @@ module.exports = class ImageControllerLogController{
             return res.status(404).send("Not found.");
         }
 
-        const logs = await Log.paginate({image: req.params.id}, {page: req.query.page})
+        const logs = await Log.paginate({image: req.params.id}, {sort: { createdAt: -1 }, page: req.query.page})
         
         return res.json({
             status: 'ok',

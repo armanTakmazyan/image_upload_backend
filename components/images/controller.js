@@ -5,7 +5,7 @@ const fs = require('fs');
 
 module.exports = class ImageController {
   static async index(req, res) {
-    const images = await Image.paginate({}, {page: req.query.page})
+    const images = await Image.paginate({}, {sort: { createdAt: -1 }, page: req.query.page})
 
     return res.json({
       status: "ok",
