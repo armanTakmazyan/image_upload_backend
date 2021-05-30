@@ -27,7 +27,7 @@ module.exports = class ImageController {
   }
 
   static async create(req, res) {
-    const actions = req.body.actions || {};
+    const actions = JSON.parse(req.body.actions) || {};
     console.log('actions', actions);
     console.log('actions.Blur', actions.blur);
     const fileName = `${Date.now()}_${req.file.originalname}`;
