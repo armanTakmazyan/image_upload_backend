@@ -68,7 +68,7 @@ module.exports = class ImageController {
       console.log("percent", percent)
 
       if (percent >= 0.3 && percent <= 10) {
-        transformer = transformer.blur(1 + percent / 2);
+        transformer = transformer.blur(percent);
       }
     }
 
