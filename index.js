@@ -1,8 +1,8 @@
 require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan');
+const cors = require('cors');
 const { isCelebrateError } = require('celebrate');
-const bodyParser = require('body-parser');
 const connectDB = require('./config/mongoDB');
 const MainRouter = require('./routes');
 const {
