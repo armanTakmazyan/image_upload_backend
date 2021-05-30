@@ -16,6 +16,7 @@ const app = express();
 connectDB();
 
 app.use(cors())
+app.options('*', cors());
 
 app.use(express.static(__dirname + '/public'));
 app.use('/uploads', express.static('uploads'));
