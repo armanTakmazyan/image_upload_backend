@@ -27,7 +27,7 @@ module.exports = class ImageController {
   }
 
   static async create(req, res) {
-    const actions = req.body.actions;
+    const actions = req.body.actions || {};
 
     const readable = fs.createReadStream(req.file.path);
     const writeStream = fs.createWriteStream(
