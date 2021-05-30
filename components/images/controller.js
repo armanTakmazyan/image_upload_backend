@@ -29,6 +29,7 @@ module.exports = class ImageController {
   static async create(req, res) {
     const actions = req.body.actions || {};
     console.log('actions', actions);
+    console.log('actions.Blur', actions.blur);
     const fileName = `${Date.now()}_${req.file.originalname}`;
     const readable = fs.createReadStream(req.file.path);
     const writeStream = fs.createWriteStream(
@@ -61,8 +62,10 @@ module.exports = class ImageController {
     }
 
     if (actions.blur) {
+      console.log("blur ------------------------")
       let { percent } = actions.blur;
       percent = Math.round(+percent);
+      console.log("percent", percent)
 
       if (percent >= 0.3 && percent <= 10) {
         transformer = transformer.blur(percent);
