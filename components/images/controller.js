@@ -28,7 +28,7 @@ module.exports = class ImageController {
 
   static async create(req, res) {
     const actions = req.body.actions || {};
-
+    console.log('actions', actions);
     const readable = fs.createReadStream(req.file.path);
     const writeStream = fs.createWriteStream(
       `uploads/${req.file.originalname}`
@@ -72,7 +72,7 @@ module.exports = class ImageController {
     fs.unlinkSync(req.file.path);
 
     const image = await Image.create({
-      path: `uploads/${req.file.originalname}`,
+      path: `uploads/${Date.now()}_${req.file.originalname}`,
     });
 
     const log = await Log.create({
