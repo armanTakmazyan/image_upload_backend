@@ -16,6 +16,7 @@ module.exports = class ImageControllerLogController{
         return res.json({
             status: 'ok',
             logs,
+            image
         });
     }
 }
