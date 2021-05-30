@@ -1,7 +1,0 @@
-{
-    "secret": "5c941c904b15ddc40ed9b907e499041d86a0c3c0716433daa793e6b203b3a521d0821e5a2774c5c72e19e48cb62bd34a1f2ff1ae1975e5d3f3518570f66cc138",
-    "mongoURI": "mongodb+srv://admin:somepas852@trainingcluster.cd4dp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    "sessionDuration": "10h",
-    "defaultHost": "127.0.0.1",
-    "defaultPort": 8080
-}
