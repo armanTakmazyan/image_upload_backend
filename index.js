@@ -9,7 +9,6 @@ const {
 	throwError,
 	CustomError,
 } = require('./helpers/errorAndSuccessMessages');
-const config = require('config');
 const app = express();
 
 // Connect Database
@@ -57,5 +56,5 @@ app.use((error, req, res, next) => {
     }
 });
 
-const PORT = process.env.PORT || config.get('defaultPort');
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Running on port ${PORT}`));
