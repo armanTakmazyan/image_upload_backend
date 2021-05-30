@@ -31,7 +31,7 @@ module.exports = class ImageController {
     console.log('actions', actions);
     const readable = fs.createReadStream(req.file.path);
     const writeStream = fs.createWriteStream(
-      `uploads/${req.file.originalname}`
+      `uploads/${Date.now()}_${req.file.originalname}`
     );
 
     let transformer = sharp();
@@ -72,7 +72,7 @@ module.exports = class ImageController {
     fs.unlinkSync(req.file.path);
 
     const image = await Image.create({
-      path: `uploads/${Date.now()}_${req.file.originalname}`,
+      path: `uploads/${req.file.originalname}`,
     });
 
     const log = await Log.create({
