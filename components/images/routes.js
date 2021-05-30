@@ -3,10 +3,11 @@ const ImageController = require('./controller');
 const LogController = require('../logs/controller');
 const {celebrate, Joi, Segments} = require('celebrate');
 const multer = require('multer');
+const path = require('path');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '../uploads/tmp');
+    cb(null, path.join(__dirname, '../uploads/tmp'));
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
