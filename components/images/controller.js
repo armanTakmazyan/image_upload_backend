@@ -29,9 +29,10 @@ module.exports = class ImageController {
   static async create(req, res) {
     const actions = req.body.actions || {};
     console.log('actions', actions);
+    const fileName = `${Date.now()}_${req.file.originalname}`;
     const readable = fs.createReadStream(req.file.path);
     const writeStream = fs.createWriteStream(
-      `uploads/${Date.now()}_${req.file.originalname}`
+      `uploads/${fileName}`
     );
 
     let transformer = sharp();
@@ -72,7 +73,7 @@ module.exports = class ImageController {
     fs.unlinkSync(req.file.path);
 
     const image = await Image.create({
-      path: `uploads/${req.file.originalname}`,
+      path: `uploads/${fileName}`,
     });
 
     const log = await Log.create({
